@@ -25,3 +25,9 @@ Every campaign gets extra fields. Goal Amount is one. Raised Amount tracks progr
 ## Webhooks (Razorpay)
 
 Razorpay users set up webhooks. Point them to the plugin endpoint.
+
+## Demo Link
+
+PHP file does not support live demo. So a sample HTML file is attached to visualize how an output could be.
+
+https://varshaajio.github.io/wordpress/
