@@ -1,0 +1,5 @@
+body { font-family: sans-serif; padding: 2em; background: #f9f9f9; }
+.campaign { background: #fff; padding: 1em; border-radius: 8px; box-shadow: 0 0 10px #ccc; }
+.progress-bar { background: #eee; height: 10px; border-radius: 5px; margin: 10px 0; }
+.bar { background: #2ea44f; height: 10px; border-radius: 5px; }
+button { background: #0a7d45; color: white; padding: 0.5em 1em; border: none; border-radius: 4px; }
