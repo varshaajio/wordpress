@@ -58,12 +58,102 @@ class OF {
     public function as() {
         wp_register_style('of_s', false);
         wp_enqueue_style('of_s');
+        // Basic fallback grid for the [of_all] shortcode
         wp_add_inline_style('of_s', ".of_g{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;}.of_c{border:1px solid #ddd;padding:15px;}.of_b{background:#eee;height:10px;margin:10px 0;}.of_f{background:#2ecc71;height:100%;}");
     }
 
     // --- METABOX (Keys: gl = Goal, rs = Raised, dl = Deadline) ---
     public function mb() {
         add_meta_box('of_m', 'Details', [$this, 'rm'], 'cp', 'side');
+    }
+
+    public function rm($post) {
+        wp_nonce_field('of_s_n', 'of_n');
+        $gl = get_post_meta($post->ID, 'gl', true);
+        $rs = get_post_meta($post->ID, 'rs', true);
+        $dl = get_post_meta($post->ID, 'dl', true);
+        echo '<p>Goal: <input type="number" name="gl" value="'.esc_attr($gl).'" class="widefat"></p>';
+        echo '<p>Raised: <input type="number" name="rs" value="'.esc_attr($rs).'" class="widefat"></p>';
+        echo '<p>Deadline: <input type="date" name="dl" value="'.esc_attr($dl).'" class="widefat"></p>';
+    }
+
+    public function sv($p_id) {
+        if (!isset($_POST['of_n']) || !wp_verify_nonce($_POST['of_n'], 'of_s_n')) return;
+        if (isset($_POST['gl'])) update_post_meta($p_id, 'gl', sanitize_text_field($_POST['gl']));
+        if (isset($_POST['rs'])) update_post_meta($p_id, 'rs', sanitize_text_field($_POST['rs']));
+        if (isset($_POST['dl'])) update_post_meta($p_id, 'dl', sanitize_text_field($_POST['dl']));
+    }
+
+    // --- HANDLER (Processes the form submission) ---
+    public function hd() {
+        if (!isset($_POST['of_d_n']) || !wp_verify_nonce($_POST['of_d_n'], 'of_d')) return;
+        
+        $c_id = intval($_POST['id']);
+        $am = floatval($_POST['am']);
+        $gt = $this->o['gt'];
+
+        if ($gt === 'paypal') {
+            $u = "https://www.paypal.com/cgi-bin/webscr?".http_build_query([
+                'cmd'=>'_donations',
+                'business'=>$this->o['pe'],
+                'amount'=>$am,
+                'currency_code'=>$this->o['cy'],
+                'return'=>get_permalink($c_id) . '?s=1'
+            ]);
+            wp_redirect($u); exit;
+        }
+
+        // Offline logic
+        wp_insert_post(['post_title'=>"Donation: $am", 'post_type'=>'dn', 'post_status'=>'publish']);
+        $cur = floatval(get_post_meta($c_id, 'rs', true));
+        update_post_meta($c_id, 'rs', $cur + $am);
+        wp_redirect(add_query_arg('s', '1', get_permalink($c_id))); exit;
+    }
+
+    // --- SETTINGS ---
+    public function mn() { add_options_page('Outreach', 'Outreach', 'manage_options', 'of_s', [$this, 'sp']); }
+    public function st() { register_setting('of_g', $this->k); }
+    
+    public function sp() {
+        ?>
+        <div class="wrap">
+            <h1>Outreach Settings</h1>
+            <form method="post" action="options.php">
+                <?php settings_fields('of_g'); ?>
+                <table class="form-table">
+                    <tr>
+                        <th>Gateway</th>
+                        <td>
+                            <select name="of_opts[gt]">
+                                <option value="offline" <?php selected($this->o['gt'], 'offline'); ?>>Offline (Test)</option>
+                                <option value="paypal" <?php selected($this->o['gt'], 'paypal'); ?>>PayPal</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><th>PayPal Email</th><td><input type="email" name="of_opts[pe]" value="<?php echo esc_attr($this->o['pe']); ?>" class="regular-text"></td></tr>
+                    <tr><th>Currency Code</th><td><input type="text" name="of_opts[cy]" value="<?php echo esc_attr($this->o['cy']); ?>" class="regular-text"></td></tr>
+                </table>
+                <?php submit_button(); ?>
+            </form>
+        </div>
+        <?php
+    }
+
+    // --- DISPLAY ---
+    public function sh_a() {
+        $q = new WP_Query(['post_type'=>'cp','posts_per_page'=>-1]);
+        ob_start();
+        echo '<div class="of_g">';
+        while($q->have_posts()){ $q->the_post();
+            $gl = floatval(get_post_meta(get_the_ID(), 'gl', true));
+            $rs = floatval(get_post_meta(get_the_ID(), 'rs', true));
+            $p = $gl > 0 ? min(100, round(($rs/$gl)*100)) : 0;
+            echo '<div class="of_c"><h4>'.get_the_title().'</h4>';
+            echo '<div class="of_b"><div class="of_f" style="width:'.$p.'%"></div></div>';
+            echo '<a href="'.get_permalink().'">Donate &rarr;</a></div>';
+        }
+        echo '</div>';
+        return ob_get_clean();
     }
 
     public function sh_o($a) {
@@ -112,7 +202,6 @@ class OF {
         </div>
 
         <script>
-            // This script handles the visual highlighting of the selected preset button
             document.querySelectorAll('.of-radio-label input').forEach(radio => {
                 radio.addEventListener('change', function() {
                     document.querySelectorAll('.of-preset-btn').forEach(btn => btn.classList.remove('of-active'));
@@ -120,97 +209,6 @@ class OF {
                 });
             });
         </script>
-        <?php
-        return ob_get_clean();
-    }
-    public function rm($post) {
-        wp_nonce_field('of_s_n', 'of_n');
-        $gl = get_post_meta($post->ID, 'gl', true);
-        $rs = get_post_meta($post->ID, 'rs', true);
-        $dl = get_post_meta($post->ID, 'dl', true);
-        echo '<p>Goal: <input type="number" name="gl" value="'.esc_attr($gl).'" class="widefat"></p>';
-        echo '<p>Raised: <input type="number" name="rs" value="'.esc_attr($rs).'" class="widefat"></p>';
-        echo '<p>Deadline: <input type="date" name="dl" value="'.esc_attr($dl).'" class="widefat"></p>';
-    }
-
-    public function sv($p_id) {
-        if (!isset($_POST['of_n']) || !wp_verify_nonce($_POST['of_n'], 'of_s_n')) return;
-        if (isset($_POST['gl'])) update_post_meta($p_id, 'gl', sanitize_text_field($_POST['gl']));
-        if (isset($_POST['rs'])) update_post_meta($p_id, 'rs', sanitize_text_field($_POST['rs']));
-        if (isset($_POST['dl'])) update_post_meta($p_id, 'dl', sanitize_text_field($_POST['dl']));
-    }
-
-    // --- HANDLER ---
-    public function hd() {
-        if (!isset($_POST['of_d_n']) || !wp_verify_nonce($_POST['of_d_n'], 'of_d')) return;
-        
-        $c_id = intval($_POST['id']);
-        $am = floatval($_POST['am']);
-        $gt = $this->o['gt'];
-
-        if ($gt === 'paypal') {
-            $u = "https://www.paypal.com/cgi-bin/webscr?".http_build_query([
-                'cmd'=>'_donations','business'=>$this->o['pe'],'amount'=>$am,'currency_code'=>$this->o['cy'],'return'=>get_permalink($c_id)
-            ]);
-            wp_redirect($u); exit;
-        }
-
-        // Offline logic
-        wp_insert_post(['post_title'=>"Donation: $am",'post_type'=>'dn','post_status'=>'publish']);
-        $cur = floatval(get_post_meta($c_id, 'rs', true));
-        update_post_meta($c_id, 'rs', $cur + $am);
-        wp_redirect(add_query_arg('s', '1', get_permalink($c_id))); exit;
-    }
-
-    // --- SETTINGS ---
-    public function mn() { add_options_page('Outreach', 'Outreach', 'manage_options', 'of_s', [$this, 'sp']); }
-    public function st() { register_setting('of_g', $this->k); }
-    
-    public function sp() {
-        ?>
-        <div class="wrap">
-            <h1>Settings</h1>
-            <form method="post" action="options.php">
-                <?php settings_fields('of_g'); ?>
-                <table class="form-table">
-                    <tr><th>Gateway</th><td><input type="text" name="of_opts[gt]" value="<?php echo $this->o['gt']; ?>"></td></tr>
-                    <tr><th>PayPal Email</th><td><input type="text" name="of_opts[pe]" value="<?php echo $this->o['pe']; ?>"></td></tr>
-                    <tr><th>Currency</th><td><input type="text" name="of_opts[cy]" value="<?php echo $this->o['cy']; ?>"></td></tr>
-                </table>
-                <?php submit_button(); ?>
-            </form>
-        </div>
-        <?php
-    }
-
-    // --- DISPLAY ---
-    public function sh_a() {
-        $q = new WP_Query(['post_type'=>'cp','posts_per_page'=>-1]);
-        ob_start();
-        echo '<div class="of_g">';
-        while($q->have_posts()){ $q->the_post();
-            $gl = floatval(get_post_meta(get_the_ID(), 'gl', true));
-            $rs = floatval(get_post_meta(get_the_ID(), 'rs', true));
-            $p = $gl > 0 ? min(100, round(($rs/$gl)*100)) : 0;
-            echo '<div class="of_c"><h4>'.get_the_title().'</h4>';
-            echo '<div class="of_b"><div class="of_f" style="width:'.$p.'%"></div></div>';
-            echo '<a href="'.get_permalink().'">View</a></div>';
-        }
-        echo '</div>';
-        return ob_get_clean();
-    }
-
-    public function sh_o($a) {
-        $id = $a['id'] ?? get_the_ID();
-        ob_start();
-        if(isset($_GET['s'])) echo "<p>Success!</p>";
-        ?>
-        <form method="post">
-            <?php wp_nonce_field('of_d', 'of_d_n'); ?>
-            <input type="hidden" name="id" value="<?php echo $id; ?>">
-            <input type="number" name="am" placeholder="Amount" required>
-            <button type="submit">Donate</button>
-        </form>
         <?php
         return ob_get_clean();
     }
