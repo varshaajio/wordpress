@@ -1,68 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Outreach Foundation</title>
-  <link rel="stylesheet" href="style.css">
+    <title>Charity Hero Interface</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <nav class="nav">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Donate</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
+    <section class="hero-section">
+        <div class="hero-container">
+            
+            <div class="hero-content">
+                <div class="badge">Verified Charity Platform</div>
+                <h1 class="hero-title">Changing Lives <br><span>One Contribution</span> at a Time.</h1>
+                <p class="hero-subtitle">
+                    Our platform ensures that 100% of your donation reaches the cause. 
+                    Support medical aid, education, and disaster relief campaigns with full transparency.
+                </p>
+                
+                <div class="hero-btns">
+                    <a href="#" class="btn btn-primary">Explore Campaigns</a>
+                    <a href="#" class="btn btn-outline">Watch Our Story</a>
+                </div>
 
-  <header class="hero">
-    <h1>Outreach Foundation</h1>
-    <p>Lending hands and support causes through fundraising</p>
-  </header>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">₹85L+</span>
+                        <span class="stat-label">Total Raised</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">12k</span>
+                        <span class="stat-label">Active Donors</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">250+</span>
+                        <span class="stat-label">Lives Impacted</span>
+                    </div>
+                </div>
+            </div>
 
-  <section class="cards">
-    <div class="card">
-      <img src="education.jpg" alt="Education">
-      <h3>Education for All</h3>
-      <p>Help provide learning resources to underprivileged children.</p>
-      <div class="progress"><div class="bar" style="width:60%"></div></div>
-      <span class="label">60% funded — ₹6000 of ₹10000</span>
-      <a href="#" class="btn">View & Donate</a>
-    </div>
+            <div class="hero-visual">
+                <div class="featured-card">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=600&auto=format&fit=crop" alt="Featured Cause">
+                        <span class="tag">Urgent</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Education for Every Child</h3>
+                        <p>Providing school supplies and scholarships to 500+ students in rural areas.</p>
+                        
+                        <div class="cf-progress-container">
+                            <div class="cf-progress-labels">
+                                <span><strong>65%</strong> Funded</span>
+                                <span>Goal: ₹5,00,000</span>
+                            </div>
+                            <div class="cf-progress-bar">
+                                <div class="cf-progress-fill" style="width: 65%;"></div>
+                            </div>
+                        </div>
 
-    <div class="card">
-      <img src="health.jpg" alt="Healthcare">
-      <h3>Healthcare Access</h3>
-      <p>Support wellness initiatives in rural areas.</p>
-      <div class="progress"><div class="bar" style="width:40%"></div></div>
-      <span class="label">40% funded — ₹4000 of ₹10000</span>
-      <a href="#" class="btn">View & Donate</a>
-    </div>
-  </section>
+                        <button class="donate-now-btn">Donate Now</button>
+                    </div>
+                </div>
+            </div>
 
-  <section class="single">
-    <h2>Education for All</h2>
-    <p>Help provide learning resources to underprivileged children.</p>
-    <div class="progress"><div class="bar" style="width:60%"></div></div>
-    <span class="label">60% funded — ₹6000 of ₹10000</span>
-    <p class="deadline">Deadline: 2026-05-30</p>
-    <form class="donate">
-      <input type="text" placeholder="Name">
-      <input type="email" placeholder="Email">
-      <input type="number" placeholder="Amount">
-      <button type="submit">Donate</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2026 Outreach Foundation</p>
-    <div class="social">
-      <a href="#">Facebook</a> |
-      <a href="#">Instagram</a> |
-      <a href="#">LinkedIn</a>
-    </div>
-  </footer>
+        </div>
+    </section>
 
 </body>
 </html>
