@@ -66,6 +66,63 @@ class OF {
         add_meta_box('of_m', 'Details', [$this, 'rm'], 'cp', 'side');
     }
 
+    public function sh_o($a) {
+        $id = $a['id'] ?? get_the_ID();
+        ob_start();
+        
+        if(isset($_GET['s'])) {
+            echo "<div style='color: #27ae60; background: #e8f8f5; padding: 15px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; text-align: center;'>Thank you! Your donation was successful.</div>";
+        }
+        ?>
+        <div class="of-donate-card">
+            <form class="of-form" action="" method="POST">
+                
+                <?php wp_nonce_field('of_d', 'of_d_n'); ?>
+                <input type="hidden" name="id" value="<?php echo esc_attr($id); ?>">
+                
+                <h3>Select your gift amount</h3>
+                
+                <div class="of-amount-presets">
+                    <label class="of-radio-label">
+                        <input type="radio" name="preset" value="25" onclick="document.getElementById('of_custom_am').value=this.value;">
+                        <span class="of-preset-btn">$25</span>
+                    </label>
+                    <label class="of-radio-label">
+                        <input type="radio" name="preset" value="50" checked onclick="document.getElementById('of_custom_am').value=this.value;">
+                        <span class="of-preset-btn of-active">$50</span>
+                    </label>
+                    <label class="of-radio-label">
+                        <input type="radio" name="preset" value="100" onclick="document.getElementById('of_custom_am').value=this.value;">
+                        <span class="of-preset-btn">$100</span>
+                    </label>
+                    <label class="of-radio-label">
+                        <input type="radio" name="preset" value="" onclick="document.getElementById('of_custom_am').value=''; document.getElementById('of_custom_am').focus();">
+                        <span class="of-preset-btn">Other</span>
+                    </label>
+                </div>
+
+                <div class="of-input-group">
+                    <span class="of-currency">$</span>
+                    <input type="number" name="am" id="of_custom_am" placeholder="Custom Amount" required value="50" class="of-input">
+                </div>
+
+                <button type="submit" class="of-btn of-btn-donate">Donate Now</button>
+                <p class="of-secure-text">🔒 Secure donation encrypted via SSL</p>
+            </form>
+        </div>
+
+        <script>
+            // This script handles the visual highlighting of the selected preset button
+            document.querySelectorAll('.of-radio-label input').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    document.querySelectorAll('.of-preset-btn').forEach(btn => btn.classList.remove('of-active'));
+                    this.nextElementSibling.classList.add('of-active');
+                });
+            });
+        </script>
+        <?php
+        return ob_get_clean();
+    }
     public function rm($post) {
         wp_nonce_field('of_s_n', 'of_n');
         $gl = get_post_meta($post->ID, 'gl', true);
