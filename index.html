@@ -4,94 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Outreach Foundation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="of-nav">
-        <div class="of-nav-container">
-            <a href="#" class="of-logo">Outreach<span>.</span></a>
-            <ul class="of-nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#mission">Our Mission</a></li>
-                <li><a href="#campaigns">Campaigns</a></li>
+<header class="hero-section">
+    
+    <nav class="hero-nav">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">Outreach Foundation<span>.</span></a>
+            
+            <ul class="nav-menu">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Our Projects</a></li>
+                <li><a href="#impact">Impact Report</a></li>
             </ul>
-            <a href="#donate" class="of-btn of-btn-nav">Donate</a>
+            
+            <div class="nav-actions">
+                <a href="#login" class="nav-link">Donor Login</a>
+                <a href="#donate" class="btn btn-nav">Donate Now</a>
+            </div>
         </div>
     </nav>
 
-    <header class="of-hero">
-        <div class="of-hero-overlay"></div>
-        <div class="of-hero-content">
-            <span class="of-badge">Global Initiative</span>
-            <h1 class="of-title">Hope Begins With Action.</h1>
-            <p class="of-subtitle">Join us in making a lasting impact. Your contribution provides essential resources, education, and relief to communities in need across the globe.</p>
-            <div class="of-hero-actions">
-                <a href="#donate" class="of-btn of-btn-primary">Make an Impact <span>&rarr;</span></a>
-                <a href="#learn-more" class="of-btn of-btn-secondary">Learn More</a>
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-content-wrapper">
+        <div class="hero-content">
+            
+            <div class="hero-badge">Verified Global Initiative</div>
+            
+            <h1 class="hero-title">Empowering Communities.<br>Transforming Lives.</h1>
+            
+            <p class="hero-subtitle">We partner with local leaders to provide sustainable solutions in education, healthcare, and economic development. Your support makes it possible.</p>
+            
+            <div class="hero-cta-group">
+                <a href="#donate" class="btn btn-primary">Make an Impact</a>
+                <a href="#video" class="btn btn-outline">
+                    <span class="play-icon">▶</span> Watch Our Story
+                </a>
             </div>
-        </div>
-    </header>
-
-    <section id="donate" class="of-donate-section">
-        <div class="of-container">
-            <div class="of-donate-grid">
-                
-                <div class="of-donate-info">
-                    <h2>Support Our Mission</h2>
-                    <p>Every contribution, big or small, brings us one step closer to a world without poverty. 100% of your public donation goes directly to funding our field projects.</p>
-                    <ul class="of-impact-list">
-                        <li>
-                            <div class="of-icon">💧</div>
-                            <div><strong>$25</strong> provides clean water for a month.</div>
-                        </li>
-                        <li>
-                            <div class="of-icon">📚</div>
-                            <div><strong>$50</strong> supplies a student with textbooks.</div>
-                        </li>
-                        <li>
-                            <div class="of-icon">🍲</div>
-                            <div><strong>$100</strong> feeds a family of four for a week.</div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="of-donate-card">
-                    <form class="of-form" action="" method="POST">
-                        <h3>Select your gift amount</h3>
-                        
-                        <div class="of-amount-presets">
-                            <label class="of-radio-label">
-                                <input type="radio" name="preset" value="25">
-                                <span class="of-preset-btn">$25</span>
-                            </label>
-                            <label class="of-radio-label">
-                                <input type="radio" name="preset" value="50" checked>
-                                <span class="of-preset-btn of-active">$50</span>
-                            </label>
-                            <label class="of-radio-label">
-                                <input type="radio" name="preset" value="100">
-                                <span class="of-preset-btn">$100</span>
-                            </label>
-                            <label class="of-radio-label">
-                                <input type="radio" name="preset" value="other">
-                                <span class="of-preset-btn">Other</span>
-                            </label>
-                        </div>
-
-                        <div class="of-input-group">
-                            <span class="of-currency">$</span>
-                            <input type="number" name="am" placeholder="Custom Amount" required value="50" class="of-input">
-                        </div>
-
-                        <button type="submit" class="of-btn of-btn-donate">Donate Now</button>
-                        <p class="of-secure-text">🔒 Secure donation encrypted via SSL</p>
-                    </form>
-                </div>
-
+            
+            <div class="hero-trust-indicators">
+                <span>Trusted by 10,000+ donors worldwide</span>
             </div>
+            
         </div>
-    </section>
+    </div>
+    
+</header>
 
 </body>
 </html>
