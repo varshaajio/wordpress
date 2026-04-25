@@ -1,82 +1,189 @@
-/* General Reset */
+/* --- CORE RESETS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-}
-
-/* Hero Banner */
-.hero-banner {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner.jpg') center/cover no-repeat;
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-/* Navigation */
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  background-color: #004d40;
-  padding: 10px;
-  margin: 0;
-}
-
-.main-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-}
-
-.main-nav a:hover {
-  background-color: #00796b;
-}
-
-/* Highlights Section */
-.highlights {
-  display: flex;
-  justify-content: space-around;
-  padding: 40px 20px;
-  background-color: #e0f2f1;
-}
-
-.highlight-box {
-  width: 30%;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-/* Footer */
-.site-footer {
-  background-color: #263238;
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
-}
-
-.site-footer a {
-  color: #ffcc80;
-  text-decoration: none;
-  margin: 0 5px;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .highlights {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #0f172a; /* Deep rich background */
+    color: #ffffff;
+    line-height: 1.6;
+    display: flex;
     flex-direction: column;
     align-items: center;
-  }
+    padding: 40px 20px 80px 20px;
+}
 
-  .highlight-box {
-    width: 80%;
+.container {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+}
+
+/* --- 0. BRAND HEADER --- */
+.brand-header {
+    margin-bottom: 50px;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #10b981; /* Accent green for 'Foundation' */
+    font-weight: 400; /* Makes 'Outreach' stand out more */
+}
+
+/* --- 1. TOP TEXT SECTION --- */
+.hero-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
     margin-bottom: 20px;
-  }
+    letter-spacing: 0.5px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    color: #10b981; /* Accent green */
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin: 0 auto 30px auto;
+    max-width: 700px;
+}
+
+/* --- BUTTONS & STATS --- */
+.action-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.btn {
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #10b981;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: #059669;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    color: #94a3b8;
+}
+
+.stat-item strong {
+    display: block;
+    color: #ffffff;
+    font-size: 1.4rem;
+}
+
+/* --- 2. MIDDLE NAVIGATION SECTION --- */
+.inline-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px 30px;
+    border-radius: 20px 20px 0 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    backdrop-filter: blur(10px);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #10b981;
+}
+
+/* --- 3. BOTTOM PICTURE SECTION --- */
+.image-wrapper {
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+/* Responsive constraints */
+@media (max-width: 768px) {
+    .stats-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .inline-nav {
+        border-radius: 12px 12px 0 0;
+    }
+    .image-wrapper {
+        border-radius: 0 0 12px 12px;
+    }
 }
