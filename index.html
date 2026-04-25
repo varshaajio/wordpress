@@ -1,24 +1,44 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Outreach Foundation</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
+  <header class="hero">
     <h1>Outreach Foundation</h1>
     <p>Lending hands and support causes through fundraising</p>
   </header>
 
-  <section class="cf-cs">
-    <h3>Education for All</h3>
-    <h3>Healthcare Access</h3>
-    <h3>Environmental Awareness</h3>
+  <section class="cards">
+    <div class="card">
+      <img src="education.jpg" alt="Education">
+      <h3>Education for All</h3>
+      <p>Help provide learning resources to underprivileged children.</p>
+      <div class="progress"><div class="bar" style="width:60%"></div></div>
+      <span class="label">60% funded — ₹6000 of ₹10000</span>
+      <a href="#" class="btn">View & Donate</a>
+    </div>
+
+    <div class="card">
+      <img src="health.jpg" alt="Healthcare">
+      <h3>Healthcare Access</h3>
+      <p>Support wellness initiatives in rural areas.</p>
+      <div class="progress"><div class="bar" style="width:40%"></div></div>
+      <span class="label">40% funded — ₹4000 of ₹10000</span>
+      <a href="#" class="btn">View & Donate</a>
+    </div>
   </section>
 
-  <section class="cf-c">
+  <section class="single">
     <h2>Education for All</h2>
     <p>Help provide learning resources to underprivileged children.</p>
-    <form>
+    <div class="progress"><div class="bar" style="width:60%"></div></div>
+    <span class="label">60% funded — ₹6000 of ₹10000</span>
+    <p class="deadline">Deadline: 2026-05-30</p>
+    <form class="donate">
       <input type="text" placeholder="Name">
       <input type="email" placeholder="Email">
       <input type="number" placeholder="Amount">
@@ -27,7 +47,12 @@
   </section>
 
   <footer>
-    <p>© 2025 Outreach Charity Foundation</p>
+    <p>© 2026 Outreach Foundation</p>
+    <div class="social">
+      <a href="#">Facebook</a> |
+      <a href="#">Instagram</a> |
+      <a href="#">LinkedIn</a>
+    </div>
   </footer>
 
 </body>
