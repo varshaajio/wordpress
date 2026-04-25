@@ -28,6 +28,6 @@ Razorpay users set up webhooks. Point them to the plugin endpoint.
 
 ## Demo Link
 
-PHP file does not support live demo. So a sample HTML file is attached to visualize how an output could be.
+PHP file does not support live demo. So a sample HTML file is attached to visualize how the output could be.
 
 https://varshaajio.github.io/wordpress/
