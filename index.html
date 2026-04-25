@@ -1,65 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Charity Hero Interface</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CharityFund | Empowering Change</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <section class="hero-section">
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">Charity<span>Fund</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Campaigns</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Our Impact</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+
+            <div class="nav-cta">
+                <a href="#" class="btn-nav">Donate Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
         <div class="hero-container">
             
-            <div class="hero-content">
-                <div class="badge">Verified Charity Platform</div>
-                <h1 class="hero-title">Changing Lives <br><span>One Contribution</span> at a Time.</h1>
-                <p class="hero-subtitle">
-                    Our platform ensures that 100% of your donation reaches the cause. 
-                    Support medical aid, education, and disaster relief campaigns with full transparency.
+            <div class="hero-text-content">
+                <div class="hero-badge">Verified Non-Profit Organization</div>
+                <h1 class="hero-main-title">
+                    Your Kindness <br><span>Can Heal</span> The World.
+                </h1>
+                <p class="hero-description">
+                    Empower communities, provide medical aid, and bridge the gap of inequality. 
+                    With our transparent tracking, see exactly how your donation changes a life today.
                 </p>
                 
-                <div class="hero-btns">
-                    <a href="#" class="btn btn-primary">Explore Campaigns</a>
-                    <a href="#" class="btn btn-outline">Watch Our Story</a>
+                <div class="hero-action-group">
+                    <a href="#" class="btn btn-primary">Start a Donation</a>
+                    <a href="#" class="btn btn-secondary">View All Causes</a>
                 </div>
 
-                <div class="hero-stats">
-                    <div class="stat-box">
-                        <span class="stat-number">₹85L+</span>
-                        <span class="stat-label">Total Raised</span>
+                <div class="hero-impact-stats">
+                    <div class="impact-item">
+                        <span class="impact-num">₹1.2Cr+</span>
+                        <span class="impact-label">Total Raised</span>
                     </div>
-                    <div class="stat-box">
-                        <span class="stat-number">12k</span>
-                        <span class="stat-label">Active Donors</span>
+                    <div class="impact-item">
+                        <span class="impact-num">15K+</span>
+                        <span class="impact-label">Happy Donors</span>
                     </div>
-                    <div class="stat-box">
-                        <span class="stat-number">250+</span>
-                        <span class="stat-label">Lives Impacted</span>
+                    <div class="impact-item">
+                        <span class="impact-num">45+</span>
+                        <span class="impact-label">Active Missions</span>
                     </div>
                 </div>
             </div>
 
-            <div class="hero-visual">
-                <div class="featured-card">
-                    <div class="card-image">
-                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=600&auto=format&fit=crop" alt="Featured Cause">
-                        <span class="tag">Urgent</span>
+            <div class="hero-card-visual">
+                <div class="featured-cause-card">
+                    <div class="cause-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop" alt="Cause Image">
+                        <span class="cause-tag">High Urgency</span>
                     </div>
-                    <div class="card-body">
-                        <h3>Education for Every Child</h3>
-                        <p>Providing school supplies and scholarships to 500+ students in rural areas.</p>
+                    
+                    <div class="cause-details">
+                        <h3>Clean Water for Rural Kids</h3>
+                        <p>Join us in building sustainable water filtration systems for 12 villages in South India.</p>
                         
-                        <div class="cf-progress-container">
-                            <div class="cf-progress-labels">
-                                <span><strong>65%</strong> Funded</span>
-                                <span>Goal: ₹5,00,000</span>
+                        <div class="cause-progress-section">
+                            <div class="progress-info">
+                                <span><strong>78%</strong> Funded</span>
+                                <span>₹7,80,000 / ₹10L</span>
                             </div>
-                            <div class="cf-progress-bar">
-                                <div class="cf-progress-fill" style="width: 65%;"></div>
+                            <div class="progress-bar-outer">
+                                <div class="progress-bar-inner" style="width: 78%;"></div>
                             </div>
                         </div>
 
-                        <button class="donate-now-btn">Donate Now</button>
+                        <button class="btn-card-donate">Support This Cause</button>
                     </div>
                 </div>
             </div>
