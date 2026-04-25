@@ -1,4 +1,4 @@
-/* --- CORE RESETS --- */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #0f172a; /* Deep rich background */
+    background-color: #0f172a; 
     color: #ffffff;
     line-height: 1.6;
     display: flex;
@@ -22,7 +22,7 @@ body {
     text-align: center;
 }
 
-/* --- 0. BRAND HEADER --- */
+
 .brand-header {
     margin-bottom: 50px;
 }
@@ -36,11 +36,11 @@ body {
 }
 
 .logo span {
-    color: #10b981; /* Accent green for 'Foundation' */
-    font-weight: 400; /* Makes 'Outreach' stand out more */
+    color: #10b981; 
+    font-weight: 400; 
 }
 
-/* --- 1. TOP TEXT SECTION --- */
+
 .hero-badge {
     display: inline-block;
     padding: 8px 16px;
@@ -61,7 +61,7 @@ body {
 }
 
 .hero-title span {
-    color: #10b981; /* Accent green */
+    color: #10b981; 
 }
 
 .hero-description {
@@ -71,7 +71,7 @@ body {
     max-width: 700px;
 }
 
-/* --- BUTTONS & STATS --- */
+
 .action-group {
     display: flex;
     justify-content: center;
@@ -121,7 +121,7 @@ body {
     font-size: 1.4rem;
 }
 
-/* --- 2. MIDDLE NAVIGATION SECTION --- */
+
 .inline-nav {
     display: flex;
     justify-content: center;
@@ -152,7 +152,7 @@ body {
     color: #10b981;
 }
 
-/* --- 3. BOTTOM PICTURE SECTION --- */
+
 .image-wrapper {
     width: 100%;
     border-radius: 0 0 20px 20px;
@@ -169,7 +169,7 @@ body {
     object-fit: cover;
 }
 
-/* Responsive constraints */
+
 @media (max-width: 768px) {
     .stats-row {
         flex-direction: column;
