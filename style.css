@@ -80,3 +80,73 @@ body {
     margin-bottom: 20px;
   }
 }
+/* Styling the PHP-generated Campaign Cards */
+.cf-campaigns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.cf-campaign-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.cf-campaign-card:hover {
+    transform: translateY(-5px);
+}
+
+.cf-campaign-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* The Progress Bar Logic */
+.cf-progress {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 12px;
+    margin: 15px 0 5px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.cf-bar {
+    background: linear-gradient(90deg, #00796b, #004d40);
+    height: 100%;
+    width: 0; /* PHP will set this percentage */
+    transition: width 1s ease-in-out;
+}
+
+.cf-progress-label {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* The Donate Button */
+.cf-actions .button, .cf-donate-form button {
+    background-color: #00796b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.cf-actions .button:hover {
+    background-color: #004d40;
+}
