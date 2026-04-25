@@ -2,7 +2,6 @@
 /**
  * Plugin Name: Outreach Foundation
  * Description: High-performance charity engine. Supports Razorpay (Popup), PayPal (Redirect), and Offline modes.
- * Version: 1.0
  * Author: Varshaa
  */
 
