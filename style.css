@@ -5,18 +5,48 @@ body {
   color: #333;
 }
 
+/* Hero Banner */
 .hero {
-  background: linear-gradient(135deg, #00796b, #004d40);
-  color: white;
-  text-align: center;
-  padding: 70px 20px;
+  background: url('banner.jpg') center/cover no-repeat;
+  height: 250px;
+  position: relative;
 }
-
+.hero .overlay {
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+}
 .hero h1 {
   margin: 0;
   font-size: 3rem;
 }
+.hero p {
+  font-size: 1.2rem;
+}
 
+/* Navigation */
+.nav {
+  background: #00796b;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 10px;
+}
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+.nav a:hover {
+  background: #004d40;
+  border-radius: 4px;
+}
+
+/* Campaign Cards */
 .cards {
   display: flex;
   flex-wrap: wrap;
@@ -24,7 +54,6 @@ body {
   justify-content: center;
   padding: 40px 20px;
 }
-
 .card {
   background: #fff;
   border-radius: 12px;
@@ -33,28 +62,25 @@ body {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
-
 .card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
-
 .card h3 {
   margin: 15px;
   color: #00796b;
 }
-
 .card p {
   margin: 0 15px 15px;
   color: #555;
 }
 
+/* Progress Bar */
 .progress {
   background: #e0e0e0;
   border-radius: 10px;
@@ -62,13 +88,11 @@ body {
   margin: 0 15px 10px;
   overflow: hidden;
 }
-
 .bar {
   background: linear-gradient(90deg, #00796b, #004d40);
   height: 100%;
   transition: width 0.6s ease;
 }
-
 .label {
   font-size: 0.85rem;
   color: #555;
@@ -76,6 +100,7 @@ body {
   display: block;
 }
 
+/* Buttons */
 .btn {
   display: block;
   background: #00796b;
@@ -87,11 +112,11 @@ body {
   text-decoration: none;
   transition: background 0.3s ease;
 }
-
 .btn:hover {
   background: #004d40;
 }
 
+/* Single Campaign */
 .single {
   max-width: 800px;
   margin: 40px auto;
@@ -100,36 +125,32 @@ body {
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
-
 .single h2 {
   margin-top: 0;
   color: #00796b;
 }
-
 .single p {
   line-height: 1.6;
 }
-
 .deadline {
   font-weight: bold;
   color: #d32f2f;
   margin-top: 10px;
 }
 
+/* Donation Form */
 .donate {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-top: 20px;
 }
-
 .donate input, .donate button {
   padding: 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-size: 1rem;
 }
-
 .donate button {
   background: #00796b;
   color: white;
@@ -137,11 +158,11 @@ body {
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 .donate button:hover {
   background: #004d40;
 }
 
+/* Footer */
 footer {
   background: #263238;
   color: white;
@@ -149,17 +170,16 @@ footer {
   padding: 25px;
   margin-top: 40px;
 }
-
 footer a {
   color: #ffcc80;
   margin: 0 8px;
   text-decoration: none;
 }
-
 footer a:hover {
   text-decoration: underline;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .cards {
     flex-direction: column;
