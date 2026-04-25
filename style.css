@@ -1,152 +1,93 @@
-/* General Reset */
 body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-}
+      font-family: 'Open Sans', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      color: #333;
+    }
 
-/* Hero Banner */
-.hero-banner {
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('banner.jpg') center/cover no-repeat;
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-}
+    header {
+      background: linear-gradient(135deg, #00796b, #004d40);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
 
-/* Navigation */
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  background-color: #004d40;
-  padding: 10px;
-  margin: 0;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
 
-.main-nav a {
-  color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-}
+    .cf-cs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 40px 20px;
+    }
 
-.main-nav a:hover {
-  background-color: #00796b;
-}
+    .cf-cs h3 {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 250px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
 
-/* Highlights Section */
-.highlights {
-  display: flex;
-  justify-content: space-around;
-  padding: 40px 20px;
-  background-color: #e0f2f1;
-}
+    .cf-cs h3:hover {
+      transform: translateY(-5px);
+      background: #e0f2f1;
+    }
 
-.highlight-box {
-  width: 30%;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
+    .cf-c {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
 
-/* Footer */
-.site-footer {
-  background-color: #263238;
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
-}
+    .cf-c h2 {
+      margin-top: 0;
+      color: #00796b;
+    }
 
-.site-footer a {
-  color: #ffcc80;
-  text-decoration: none;
-  margin: 0 5px;
-}
+    .cf-c p {
+      line-height: 1.6;
+    }
 
-.site-footer a:hover {
-  text-decoration: underline;
-}
+    .cf-c form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .highlights {
-    flex-direction: column;
-    align-items: center;
-  }
+    .cf-c input, .cf-c button {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
 
-  .highlight-box {
-    width: 80%;
-    margin-bottom: 20px;
-  }
-}
-/* Styling the PHP-generated Campaign Cards */
-.cf-campaigns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px 0;
-}
+    .cf-c button {
+      background: #00796b;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
 
-.cf-campaign-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    padding: 20px;
-    width: 300px;
-    text-align: left;
-    transition: transform 0.3s ease;
-}
+    .cf-c button:hover {
+      background: #004d40;
+    }
 
-.cf-campaign-card:hover {
-    transform: translateY(-5px);
-}
-
-.cf-campaign-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-/* The Progress Bar Logic */
-.cf-progress {
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    height: 12px;
-    margin: 15px 0 5px 0;
-    overflow: hidden;
-    position: relative;
-}
-
-.cf-bar {
-    background: linear-gradient(90deg, #00796b, #004d40);
-    height: 100%;
-    width: 0; /* PHP will set this percentage */
-    transition: width 1s ease-in-out;
-}
-
-.cf-progress-label {
-    font-size: 0.85rem;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-/* The Donate Button */
-.cf-actions .button, .cf-donate-form button {
-    background-color: #00796b;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-}
-
-.cf-actions .button:hover {
-    background-color: #004d40;
-}
+    footer {
+      background: #263238;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
