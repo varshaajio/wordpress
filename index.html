@@ -1,57 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outreach Foundation | Empowering Change</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <title>Outreach Foundation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="container">
-        
-        <header class="brand-header">
-            <a href="#" class="logo">Outreach<span>Foundation</span></a>
-        </header>
-
-        <div class="hero-badge">Verified Non-Profit Organization</div>
-        
-        <h1 class="hero-title">
-            Your Kindness <br><span>Can Heal</span> The World.
-        </h1>
-        
-        <p class="hero-description">
-            Empower communities, provide medical aid, and bridge the gap of inequality. 
-            With our transparent tracking, see exactly how your donation changes a life today.
-        </p>
-
-        <div class="action-group">
-            <a href="#donate" class="btn btn-primary">Start a Donation</a>
-            <a href="#causes" class="btn btn-secondary">View All Causes</a>
+    <header class="of-hero">
+        <div class="of-hero-overlay"></div>
+        <div class="of-hero-content">
+            <span class="of-badge">Outreach Foundation</span>
+            <h1 class="of-title">Hope Begins With Action.</h1>
+            <p class="of-subtitle">Join us in making a lasting impact. Your contribution provides essential resources, education, and relief to communities in need across the globe.</p>
+            <div class="of-hero-actions">
+                <a href="#donate" class="of-btn of-btn-primary">Make an Impact</a>
+                <a href="#learn-more" class="of-btn of-btn-secondary">Learn More</a>
+            </div>
         </div>
+    </header>
 
-        <div class="stats-row">
-            <div class="stat-item"><strong>₹1.2Cr+</strong> Total Raised</div>
-            <div class="stat-item"><strong>15K+</strong> Happy Donors</div>
-            <div class="stat-item"><strong>45+</strong> Active Missions</div>
+    <section id="donate" class="of-donate-section">
+        <div class="of-container">
+            <div class="of-donate-grid">
+                
+                <div class="of-donate-info">
+                    <h2>Support Our Mission Today</h2>
+                    <p>Every contribution, big or small, brings us one step closer to a world without poverty. 100% of your public donation goes directly to funding our field projects.</p>
+                    <ul class="of-impact-list">
+                        <li>✓ <strong>$25</strong> provides clean water for a month.</li>
+                        <li>✓ <strong>$50</strong> supplies a student with textbooks.</li>
+                        <li>✓ <strong>$100</strong> feeds a family of four for a week.</li>
+                    </ul>
+                </div>
+
+                <div class="of-donate-card">
+                    <form class="of-form" action="" method="POST">
+                        <h3>Select your gift amount</h3>
+                        
+                        <div class="of-amount-presets">
+                            <label class="of-radio-label">
+                                <input type="radio" name="preset" value="25">
+                                <span class="of-preset-btn">$25</span>
+                            </label>
+                            <label class="of-radio-label">
+                                <input type="radio" name="preset" value="50" checked>
+                                <span class="of-preset-btn of-active">$50</span>
+                            </label>
+                            <label class="of-radio-label">
+                                <input type="radio" name="preset" value="100">
+                                <span class="of-preset-btn">$100</span>
+                            </label>
+                            <label class="of-radio-label">
+                                <input type="radio" name="preset" value="other">
+                                <span class="of-preset-btn">Other</span>
+                            </label>
+                        </div>
+
+                        <div class="of-input-group">
+                            <span class="of-currency">$</span>
+                            <input type="number" name="am" placeholder="Custom Amount" required value="50" class="of-input">
+                        </div>
+
+                        <button type="submit" class="of-btn of-btn-donate">Donate Now</button>
+                        <p class="of-secure-text">🔒 Secure donation encrypted via SSL</p>
+                    </form>
+                </div>
+
+            </div>
         </div>
-
-        <nav class="inline-nav">
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#campaigns">Campaigns</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#impact">Our Impact</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-
-        <div class="image-wrapper">
-            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop" alt="Smiling children representing the Outreach Foundation cause">
-        </div>
-
-    </div>
+    </section>
 
 </body>
 </html>
