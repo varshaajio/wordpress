@@ -88,7 +88,7 @@ Razorpay users must set up webhooks to automate donation tracking.
 
 The PHP file does not support a live demo directly on GitHub. A sample HTML file is provided to visualize the output.
 
-**[View Live Demo of website here](https://varshaajio.github.io/wordpress/)**
+**[View Live Demo of website here](https://varshaajio.github.io/Wordpress-plugin/)**
 
 
 
