@@ -1,7 +1,7 @@
 # Charity Fund Collection
 ## Plugin name: Outreach Foundation 
 
-This is a simple WordPress plugin designed for charity fundraising and campaign management. This project lets you run charity campaigns. You can collect donations too. It works with offline or test donations. 
+This is a simple WordPress plugin designed for charity fundraising and campaign management. You can collect donations. It works with offline or test donations. 
 ### Payment options: Razorpay and PayPal Donate are supported.
 
 ## Features
